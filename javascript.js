@@ -36,7 +36,12 @@ function reset (winner) {
         results.textContent = 'Click to start New Game';
         results.removeChild(scoreboard);
         results.removeChild(declareWinner)
-    };
+    }
+    else {
+        buttons.forEach((button) => {
+            button.disabled = true;
+        });
+    }
     playerScore = 0;
     computerScore = 0;
 }
