@@ -33,6 +33,8 @@ function reset (winner) {
     }
     if(window.confirm(`${winningMessage}`))
     {
+        playerScore = 0;
+        computerScore = 0;
         results.textContent = 'Click to start New Game';
         results.removeChild(scoreboard);
         results.removeChild(declareWinner)
@@ -42,8 +44,6 @@ function reset (winner) {
             button.disabled = true;
         });
     }
-    playerScore = 0;
-    computerScore = 0;
 }
 
 function playRound(playerSelection, computerSelection) {
