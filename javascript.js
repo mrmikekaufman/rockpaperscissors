@@ -1,4 +1,4 @@
-//Create function (getComputerChoice) that randomly gives back the computers choice
+//Create function that randomly gives back the computers choice
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     let randomNumber = Math.floor(Math.random() * 3);
@@ -48,17 +48,27 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+//add event listeners for each button that calls playRound w/ correct player selection
+const buttons = document.querySelectorAll('button');
+const computerSelection = getComputerChoice();
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(playRound(button.className, computerSelection));
+    });
+});
+
+
+
 //game() function -> calls playRound and declares a winner. For loop that loops the game 5 times
 function game() {
-    for (let i = 0; i < 5; i++) {
-        //Prompt user for their choice
-        let playerResponse = prompt('What will you choose?', 'Rock? Paper? Scissors?');
-        let playerSelection = playerResponse;
-        //Get random computer selection
-        const computerSelection = getComputerChoice();
-        //Play 5 rounds returning who won after each round
-        console.log(playRound(playerSelection, computerSelection));
-    }
+    //Prompt user for their choice
+    // let playerResponse = prompt('What will you choose?', 'Rock? Paper? Scissors?');
+    let playerSelection = playerResponse;
+    //Get random computer selection
+    const computerSelection = getComputerChoice();
+    //Play 5 rounds returning who won after each round
+    console.log(playRound(playerSelection, computerSelection));
+
     //Compare computer score to player score after 5 rounds to determine a final winner.
     if (playerScore > computerScore) {
         console.log('You win! Congrats.');
@@ -71,4 +81,4 @@ function game() {
     }
 }
 
-game();
+// game();
